@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/animate.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/magnific-popup.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}"/>
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fonts/ionicons/css/ionicons.min.css') }}" />#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fonts/fontawesome/css/font-awesome.min.css') }}" />#}
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+
+<script src="{{ asset('bundles/app/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/jquery-migrate-3.0.0.js') }}"></script>
+<script src="{{ asset('bundles/app/js/popper.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/magnific-popup-options.js') }}"></script>
+
+<script src="{{ asset('bundles/app/js/main.js') }}"></script>
+</body>
 </html>
