@@ -26,35 +26,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+
             <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
                 <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'index' %} active {% endif %}" href="{{ path('index') }}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ path('rooms') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Room Videos</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Presidential Room</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Luxury Room</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Deluxe Room</a>
-                        </div>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'blog' %} active {% endif %}" href="{{ path('blog') }}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'about' %} active {% endif %}" href="{{ path('about') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'contact' %} active {% endif %}" href="{{ path('contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'booknow' %} active {% endif %}" href="{{ path('booknow') }}">Book now</a>
+                    <li>
+                        <p class="nav-link">User: {{ app.user.username }}</p>
                     </li>
                     <li class="nav-item cta">
-                        <a class="nav-link {% if page == 'admin' %} active {% endif %}" href="{{ path('admin_login') }}"><span>Admin</span></a>
+                        <a class="nav-link" href="{{ path('logout') }}"><span>Logout</span></a>
                     </li>
                 </ul>
 

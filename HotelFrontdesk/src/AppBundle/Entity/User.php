@@ -31,10 +31,23 @@ class User implements UserInterface {
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=20)
+     * @ORM\Column(name="password", type="string", length=100)
      */
     private $password;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(type="array", nullable=false)
+     */
+    private $roles;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="datetime", nullable=false)
+     */
+    protected $lastLogin;
 
     /**
      * Get id
@@ -104,7 +117,7 @@ class User implements UserInterface {
      * @return (Role|string)[] The user roles
      */
     public function getRoles() {
-        return [];
+        return $this->roles;
     }
 
     /**
@@ -127,5 +140,39 @@ class User implements UserInterface {
     public function eraseCredentials() {
 
     }
-}
 
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles) {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Set lastLogin
+     *
+     * @param \DateTime $lastLogin
+     *
+     * @return User
+     */
+    public function setLastLogin($lastLogin) {
+        $this->lastLogin = $lastLogin;
+
+        return $this;
+    }
+
+    /**
+     * Get lastLogin
+     *
+     * @return \DateTime
+     */
+    public function getLastLogin() {
+        return $this->lastLogin;
+    }
+}

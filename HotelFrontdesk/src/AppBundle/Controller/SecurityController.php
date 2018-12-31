@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends BaseController {
@@ -26,13 +26,6 @@ class SecurityController extends BaseController {
             return $this->redirectToRoute('admin_index');
         }
 
-
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $user = $repository->find(1);
-//        $encodedPassword = $encoder->encodePassword($user, $user->getPassword());
-
-
-
         return $this->render('@App/login.html.twig', array(
             'last_username' => $lastUsername,
             'error' => $error,
@@ -40,11 +33,49 @@ class SecurityController extends BaseController {
     }
 
     /**
-     * @Route("login_check", name="login_check")
+     * @Route("/login_check", name="login_check")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function loginCheckAction(Request $request) {
         return $this->redirectToRoute('login');
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction() {
+        $this->get('request_stack')->getCurrentRequest()->getSession()->invalidate();
+        return $this->redirectToRoute('index');
+    }
+
+    /**
+     * @Route("/register", name="register")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder) {
+        if ($this->putOrPost()) {
+            $password = $this->validateInput($request->get('_password'));
+            $username = $this->validateInput($request->get('_username'));
+
+            if ($username && $password) {
+                $user = new User();
+                $user
+                    ->setUsername($username)
+                    ->setPassword($passwordEncoder->encodePassword($user, $password))
+                    ->setLastLogin(new \DateTime())
+                    ->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
+
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($user);
+                $manager->flush();
+
+                $this->addFlash('success', 'Successfully registered ' . $username . '!');
+            }
+        }
+
+        return $this->render('@App/security/register.html.twig');
     }
 }
