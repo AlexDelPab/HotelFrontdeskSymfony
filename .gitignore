@@ -15,3 +15,7 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+src/AppBundle/Entity/Employer.php~
+src/AppBundle/Entity/Guest.php~
+src/AppBundle/Entity/Reservation.php~
+src/AppBundle/Entity/Room.php~

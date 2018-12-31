@@ -2,32 +2,123 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Hotel Frontdesk Gruppe3 {% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/animate.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/bootstrap.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/magnific-popup.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/owl.carousel.min.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}"/>
-    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />#}
-    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fonts/ionicons/css/ionicons.min.css') }}" />#}
-    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fonts/fontawesome/css/font-awesome.min.css') }}" />#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/animate.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/magnific-popup.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/fonts/ionicons/css/ionicons.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/fonts/fontawesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/all.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/brands.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}" />
 </head>
 <body>
+<header role="banner">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('index') }}">LuxuryHotel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'index' %} active {% endif %}" href="{{ path('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ path('rooms') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" href="{{ path('rooms') }}">Room Videos</a>
+                            <a class="dropdown-item" href="{{ path('rooms') }}">Presidential Room</a>
+                            <a class="dropdown-item" href="{{ path('rooms') }}">Luxury Room</a>
+                            <a class="dropdown-item" href="{{ path('rooms') }}">Deluxe Room</a>
+                        </div>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'blog' %} active {% endif %}" href="{{ path('blog') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'about' %} active {% endif %}" href="{{ path('about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'contact' %} active {% endif %}" href="{{ path('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'booknow' %} active {% endif %}" href="{{ path('booknow') }}">Book now</a>
+                    </li>
+                    <li class="nav-item cta">
+                        <a class="nav-link {% if page == 'admin' %} active {% endif %}" href="{{ path('login') }}"><span>Admin</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- END header -->
 {% block body %}{% endblock %}
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <h3>Phone Support</h3>
+                <p>24/7 Call us now.</p>
+                <p class="lead"><a href="tel://">+ 1 332 3093 323</a></p>
+            </div>
+            <div class="col-md-4">
+                <h3>Connect With Us</h3>
+                <p>We are socialized. Follow us</p>
+                <p>
+                    <a href="#" class="pl-0 p-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="p-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="p-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="p-3"><i class="fab fa-vimeo"></i></a>
+                    <a href="#" class="p-3"><i class="fab fa-youtube"></i></a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h3>Connect With Us</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, odio.</p>
+                <form action="#" class="subscribe">
+                    <div class="form-group">
+                        <button type="submit"><span class="ion-ios-arrow-thin-right"></span></button>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7 text-center">
+                &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END footer -->
+
 {% block javascripts %}{% endblock %}
 
-<script src="{{ asset('bundles/app/js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/jquery-migrate-3.0.0.js') }}"></script>
-<script src="{{ asset('bundles/app/js/popper.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/jquery.stellar.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/magnific-popup-options.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/jquery-migrate-3.0.0.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/popper.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/magnific-popup-options.js') }}"></script>
 
-<script src="{{ asset('bundles/app/js/main.js') }}"></script>
+<script src="{{ asset('bundles/app/template/js/main.js') }}"></script>
 </body>
 </html>

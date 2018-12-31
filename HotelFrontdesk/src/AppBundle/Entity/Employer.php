@@ -16,6 +16,19 @@ class Employer {
     use IdTrait;
     use PersonTrait;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable=false)
+     */
+    private $email;
 
     /**
      * Set firstName
@@ -24,8 +37,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setFirstName($firstName)
-    {
+    public function setFirstName($firstName) {
         $this->firstName = $firstName;
 
         return $this;
@@ -36,8 +48,7 @@ class Employer {
      *
      * @return string
      */
-    public function getFirstName()
-    {
+    public function getFirstName() {
         return $this->firstName;
     }
 
@@ -48,8 +59,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setLastName($lastName)
-    {
+    public function setLastName($lastName) {
         $this->lastName = $lastName;
 
         return $this;
@@ -60,8 +70,7 @@ class Employer {
      *
      * @return string
      */
-    public function getLastName()
-    {
+    public function getLastName() {
         return $this->lastName;
     }
 
@@ -72,8 +81,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setStreet($street)
-    {
+    public function setStreet($street) {
         $this->street = $street;
 
         return $this;
@@ -84,8 +92,7 @@ class Employer {
      *
      * @return string
      */
-    public function getStreet()
-    {
+    public function getStreet() {
         return $this->street;
     }
 
@@ -96,8 +103,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setZip($zip)
-    {
+    public function setZip($zip) {
         $this->zip = $zip;
 
         return $this;
@@ -108,8 +114,7 @@ class Employer {
      *
      * @return integer
      */
-    public function getZip()
-    {
+    public function getZip() {
         return $this->zip;
     }
 
@@ -120,8 +125,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setCity($city)
-    {
+    public function setCity($city) {
         $this->city = $city;
 
         return $this;
@@ -132,8 +136,7 @@ class Employer {
      *
      * @return string
      */
-    public function getCity()
-    {
+    public function getCity() {
         return $this->city;
     }
 
@@ -144,8 +147,7 @@ class Employer {
      *
      * @return Employer
      */
-    public function setCountry($country)
-    {
+    public function setCountry($country) {
         $this->country = $country;
 
         return $this;
@@ -156,8 +158,51 @@ class Employer {
      *
      * @return string
      */
-    public function getCountry()
-    {
+    public function getCountry() {
         return $this->country;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Employer
+     */
+    public function setPassword($password) {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Employer
+     */
+    public function setEmail($email) {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail() {
+        return $this->email;
     }
 }
