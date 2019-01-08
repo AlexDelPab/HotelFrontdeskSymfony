@@ -44,13 +44,6 @@ class AppController extends BaseController {
     }
 
     /**
-     * @Route("/booknow", name="booknow")
-     */
-    public function booknowAction() {
-        return $this->render('@App/booknow.html.twig');
-    }
-
-    /**
      * @Route("/rooms", name="rooms")
      */
     public function roomsAction() {

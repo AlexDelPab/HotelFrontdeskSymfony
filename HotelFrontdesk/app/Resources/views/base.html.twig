@@ -10,11 +10,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/magnific-popup.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/owl.carousel.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/style.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/fonts/ionicons/css/ionicons.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/fonts/fontawesome/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/all.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/brands.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}" />
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('bundles/app/template/fonts/ionicons/css/ionicons.min.css') }}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('bundles/app/template/fonts/fontawesome/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/all.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/brands.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}"/>
 </head>
 <body>
 <header role="banner">
@@ -22,17 +24,20 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ path('index') }}">LuxuryHotel</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
+                    aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
                 <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if page == 'index' %} active {% endif %}" href="{{ path('index') }}">Home</a>
+                        <a class="nav-link {% if page == 'index' %} active {% endif %}"
+                           href="{{ path('index') }}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ path('rooms') }}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
+                        <a class="nav-link dropdown-toggle" href="{{ path('rooms') }}" id="dropdown04"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="{{ path('rooms') }}">Room Videos</a>
                             <a class="dropdown-item" href="{{ path('rooms') }}">Presidential Room</a>
@@ -42,20 +47,29 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if page == 'blog' %} active {% endif %}" href="{{ path('blog') }}">Blog</a>
+                        <a class="nav-link {% if page == 'blog' %} active {% endif %}"
+                           href="{{ path('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if page == 'about' %} active {% endif %}" href="{{ path('about') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'contact' %} active {% endif %}" href="{{ path('contact') }}">Contact</a>
+                        <a class="nav-link {% if page == 'about' %} active {% endif %}"
+                           href="{{ path('about') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if page == 'booknow' %} active {% endif %}" href="{{ path('booknow') }}">Book now</a>
                     </li>
-                    <li class="nav-item cta">
-                        <a class="nav-link {% if page == 'admin' %} active {% endif %}" href="{{ path('login') }}"><span>Admin</span></a>
-                    </li>
+                    {% if app.user is defined and app.user is not null %}
+                        <li>
+                            <p class="nav-link">User: {{ app.user.username }} </p>
+                        </li>
+                        <li class="nav-item cta">
+                            <a class="nav-link" href="{{ path('logout') }}"><span>Logout</span></a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item cta">
+                            <a class="nav-link {% if page == 'admin' %} active {% endif %}"
+                               href="{{ path('login') }}"><span>Admin</span></a>
+                        </li>
+                    {% endif %}
                 </ul>
 
             </div>
@@ -99,7 +113,9 @@
         <div class="row justify-content-center">
             <div class="col-md-7 text-center">
                 &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made with <i class="fas fa-heart"></i> by <a
+                        href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
         </div>
