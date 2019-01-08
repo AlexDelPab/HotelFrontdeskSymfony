@@ -23,7 +23,7 @@ class SecurityController extends BaseController {
         $lastUsername = $authenticationUtils->getLastUsername();
 
         if ($this->getUser()) {
-            return $this->redirectToRoute('admin_index');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render('@App/login.html.twig', array(
