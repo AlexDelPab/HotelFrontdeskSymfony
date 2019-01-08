@@ -20,6 +20,8 @@ class EmployeeController extends BaseController {
     public function indexAction() {
         $repository = $this->getDoctrine()->getRepository(Employer::class);
 
+        $test = $repository->getPutschisLittlePenis();
+
         $employees = $repository->findAll();
 
         if (!$employees) {
