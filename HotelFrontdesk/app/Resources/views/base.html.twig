@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/all.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/brands.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}"/>
+
+    <script src="{{ asset('bundles/app/template/js/jquery-3.2.1.min.js') }}"></script>
 </head>
 <body>
 <header role="banner">
@@ -54,10 +56,15 @@
                         <a class="nav-link {% if page == 'about' %} active {% endif %}"
                            href="{{ path('about') }}">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if page == 'booknow' %} active {% endif %}" href="{{ path('booknow') }}">Book now</a>
-                    </li>
                     {% if app.user is defined and app.user is not null %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if page == 'employee' %} active {% endif %}"
+                               href="{{ path('employee_index') }}">Employees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if page == 'booknow' %} active {% endif %}"
+                               href="{{ path('booknow') }}">Book now</a>
+                        </li>
                         <li>
                             <p class="nav-link">User: {{ app.user.username }} </p>
                         </li>
@@ -125,7 +132,6 @@
 
 {% block javascripts %}{% endblock %}
 
-<script src="{{ asset('bundles/app/template/js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('bundles/app/template/js/jquery-migrate-3.0.0.js') }}"></script>
 <script src="{{ asset('bundles/app/template/js/popper.min.js') }}"></script>
 <script src="{{ asset('bundles/app/template/js/bootstrap.min.js') }}"></script>

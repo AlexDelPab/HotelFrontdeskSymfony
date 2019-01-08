@@ -23,7 +23,7 @@ trait PersonTrait {
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=20, nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $street;
 
@@ -47,5 +47,13 @@ trait PersonTrait {
      * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $country;
+
+    public function getName() {
+        return $this->firstName . " " . $this->lastName;
+    }
+
+    public function getAddress() {
+        return $this->street . ", " . $this->zip . " " . $this->city;
+    }
 
 }

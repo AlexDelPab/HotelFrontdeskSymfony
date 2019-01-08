@@ -19,14 +19,7 @@ class Employer {
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=20, nullable=false)
-     */
-    private $password;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=20, nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $email;
 
@@ -160,28 +153,6 @@ class Employer {
      */
     public function getCountry() {
         return $this->country;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Employer
-     */
-    public function setPassword($password) {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword() {
-        return $this->password;
     }
 
     /**
