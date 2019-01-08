@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/animate.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/bootstrap-datepicker.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/magnific-popup.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/owl.carousel.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/template/css/style.css') }}"/>
@@ -19,6 +20,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}"/>
 
     <script src="{{ asset('bundles/app/template/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/jquery-migrate-3.0.0.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/popper.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/template/js/magnific-popup-options.js') }}"></script>
+
+    <script src="{{ asset('bundles/app/template/js/main.js') }}"></script>
 </head>
 <body>
 <header role="banner">
@@ -37,16 +49,9 @@
                         <a class="nav-link {% if page == 'index' %} active {% endif %}"
                            href="{{ path('index') }}">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ path('rooms') }}" id="dropdown04"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Room Videos</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Presidential Room</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Luxury Room</a>
-                            <a class="dropdown-item" href="{{ path('rooms') }}">Deluxe Room</a>
-                        </div>
-
+                    <li class="nav-item">
+                        <a class="nav-link {% if page == 'rooms' %} active {% endif %}"
+                           href="{{ path('room_index') }}">Rooms</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if page == 'blog' %} active {% endif %}"
@@ -62,8 +67,7 @@
                                href="{{ path('employee_index') }}">Employees</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if page == 'booknow' %} active {% endif %}"
-                               href="{{ path('booknow') }}">Book now</a>
+                            <a class="nav-link {% if page == 'book' %} active {% endif %}" href="{{ path('reservation_index') }}">Book</a>
                         </li>
                         <li>
                             <p class="nav-link">User: {{ app.user.username }} </p>
@@ -132,15 +136,6 @@
 
 {% block javascripts %}{% endblock %}
 
-<script src="{{ asset('bundles/app/template/js/jquery-migrate-3.0.0.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/popper.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/jquery.stellar.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('bundles/app/template/js/magnific-popup-options.js') }}"></script>
 
-<script src="{{ asset('bundles/app/template/js/main.js') }}"></script>
 </body>
 </html>

@@ -19,33 +19,43 @@ class Reservation {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", length=20, nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $occupiedFrom;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", length=20, nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $occupiedTo;
 
     /**
-     * @OneToMany(targetEntity="AppBundle\Entity\Guest", mappedBy="reservation")
+     * @var integer
+     *
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $guests;
 
     /**
-     * @OneToOne(targetEntity="AppBundle\Entity\Room", mappedBy="reservation")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room", inversedBy="reservation")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
      */
     private $room;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=20, nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=false)
      */
-    private $status;
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $note;
 
     /**
      * Constructor
@@ -171,5 +181,67 @@ class Reservation {
      */
     public function getRoom() {
         return $this->room;
+    }
+
+    /**
+     * Set guests
+     *
+     * @param integer $guests
+     *
+     * @return Reservation
+     */
+    public function setGuests($guests)
+    {
+        $this->guests = $guests;
+
+        return $this;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Reservation
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set note
+     *
+     * @param string $note
+     *
+     * @return Reservation
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }
