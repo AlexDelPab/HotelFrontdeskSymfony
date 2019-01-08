@@ -22,10 +22,6 @@ class EmployeeController extends BaseController {
 
         $employees = $repository->getAll();
         
-        dump($employees);
-        die();
-        
-
         if (!$employees) {
             $this->createEmployeeEntities();
         }
