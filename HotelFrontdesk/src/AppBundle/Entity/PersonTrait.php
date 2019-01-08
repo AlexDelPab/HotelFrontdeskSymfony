@@ -53,7 +53,7 @@ trait PersonTrait {
     }
 
     public function getAddress() {
-        return $this->street . ", " . $this->zip . " " . $this->city;
+        return $this->street . " \n " . $this->zip . " " . $this->city . ", " . $this->country;
     }
 
 }

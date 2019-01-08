@@ -33,21 +33,20 @@
                                     <th>Name</th>
                                     <th>Address</th>
                                     <th>E-Mail</th>
-                                    <th>
-                                    </th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for employee in employees %}
                                     <tr>
                                         <td>{{ employee.name }}</td>
-                                        <td>{{ employee.address }}</td>
+                                        <td>{{ employee.address|nl2br }}</td>
                                         <td>{{ employee.email }}</td>
                                         <td>
                                             <div class="dropdown">
-                                                <a class="dropdown-toggle" href="{{ path('rooms') }}"
+                                                <button class="btn-primary btn-sm text-white" href="{{ path('rooms') }}"
                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false"></a>
+                                                   aria-expanded="false"><i class="fas fa-caret-down"></i></button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{ path('employee_edit', {'id' : employee.id }) }}"><i
                                                                 class="fas fa-edit"></i> Edit</a>

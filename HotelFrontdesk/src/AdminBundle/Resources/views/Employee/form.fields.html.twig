@@ -1,33 +1,45 @@
 <div class="row">
-    <div class="col-md-6 text-center">
+    <div class="col-md-12">
         <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" class="form-control" {% if employee is defined %} value="{{ employee.firstName }}" {% endif %}>
+            <input type="text" id="firstName" name="firstName"
+                   class="form-control" {% if employee is defined %} value="{{ employee.firstName }}" {% endif %}>
         </div>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" {% if employee is defined %} value="{{ employee.email }}" {% endif %}>
-        </div>
-
-
-        <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" class="form-control" {% if employee is defined %} value="{{ employee.city }}" {% endif %}>
-        </div>
-    </div>
-    <div class="col-md-6 text-center">
         <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" {% if employee is defined %} value="{{ employee.lastName }}" {% endif %}>
+            <input type="text" id="lastName" name="lastName"
+                   class="form-control" {% if employee is defined %} value="{{ employee.lastName }}" {% endif %}>
         </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"
+                   class="form-control" {% if employee is defined %} value="{{ employee.email }}" {% endif %}>
+        </div>
+
         <div class="form-group">
             <label for="street">Street</label>
-            <input type="text" id="street" name="street" class="form-control" {% if employee is defined %} value="{{ employee.street }}" {% endif %}>
+            <input type="text" id="street" name="street"
+                   class="form-control" {% if employee is defined %} value="{{ employee.street }}" {% endif %}>
         </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip" {% if employee is defined %} value="{{ employee.zip }}" {% endif %}>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" {% if employee is defined %} value="{{ employee.city }}" {% endif %}>
+            </div>
+        </div>
+
         <div class="form-group">
-            <label for="zip">Zip</label>
-            <input type="text" id="zip" name="zip" class="form-control" {% if employee is defined %} value="{{ employee.zip }}" {% endif %}>
+            <label for="country">Country</label>
+            <select id="country" name="country" class="form-control">
+                <option selected>Choose...</option>
+                <option value="Austria" {% if employee is defined and employee.country == 'Austria' %} selected {% endif %}>Austria</option>
+                <option value="Germany" {% if employee is defined and employee.country == 'Germany' %} selected {% endif %}>Germany</option>
+            </select>
         </div>
     </div>
 </div>
