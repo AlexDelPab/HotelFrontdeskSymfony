@@ -85,7 +85,6 @@ class EmployeeController extends BaseController {
             $city = $this->validateInput($request->get('city'));
 
             if ($firstName && $lastName && $email && $street && $zip && $city) {
-                $employee = new Employer();
                 $employee
                     ->setFirstName($firstName)
                     ->setLastName($lastName)

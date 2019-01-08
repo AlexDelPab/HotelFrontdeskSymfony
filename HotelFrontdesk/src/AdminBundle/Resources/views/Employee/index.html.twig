@@ -30,7 +30,6 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Address</th>
                                     <th>E-Mail</th>
@@ -41,7 +40,6 @@
                                 <tbody>
                                 {% for employee in employees %}
                                     <tr>
-                                        <td>{{ employee.id }}</td>
                                         <td>{{ employee.name }}</td>
                                         <td>{{ employee.address }}</td>
                                         <td>{{ employee.email }}</td>
