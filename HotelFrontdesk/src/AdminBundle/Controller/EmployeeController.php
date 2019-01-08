@@ -21,7 +21,7 @@ class EmployeeController extends BaseController {
         $repository = $this->getDoctrine()->getRepository(Employer::class);
 
         $employees = $repository->getAll();
-        
+
         if (!$employees) {
             $this->createEmployeeEntities();
         }
@@ -39,27 +39,9 @@ class EmployeeController extends BaseController {
      */
     public function createAction(Request $request) {
         if ($this->putOrPost()) {
-            $firstName = $this->validateInput($request->get('firstName'));
-            $lastName = $this->validateInput($request->get('lastName'));
-            $email = $this->validateInput($request->get('email'));
-            $street = $this->validateInput($request->get('street'));
-            $zip = $this->validateInput($request->get('zip'));
-            $city = $this->validateInput($request->get('city'));
+            $entity = $this->createOrUpdateEntity($request);
 
-            if ($firstName && $lastName && $email && $street && $zip && $city) {
-                $employee = new Employer();
-                $employee
-                    ->setFirstName($firstName)
-                    ->setLastName($lastName)
-                    ->setEmail($email)
-                    ->setZip($zip)
-                    ->setStreet($street)
-                    ->setCity($city);
-
-                $manager = $this->getDoctrine()->getManager();
-                $manager->persist($employee);
-                $manager->flush();
-
+            if ($entity) {
                 return $this->redirectToRoute('employee_index');
             }
         }
@@ -77,27 +59,9 @@ class EmployeeController extends BaseController {
      */
     public function editAction(Employer $employee, Request $request) {
         if ($this->putOrPost()) {
-            $firstName = $this->validateInput($request->get('firstName'));
-            $lastName = $this->validateInput($request->get('lastName'));
-            $email = $this->validateInput($request->get('email'));
-            $street = $this->validateInput($request->get('street'));
-            $zip = $this->validateInput($request->get('zip'));
-            $city = $this->validateInput($request->get('city'));
+            $entity = $this->createOrUpdateEntity($request, $employee);
 
-            if ($firstName && $lastName && $email && $street && $zip && $city) {
-                $employee = new Employer();
-                $employee
-                    ->setFirstName($firstName)
-                    ->setLastName($lastName)
-                    ->setEmail($email)
-                    ->setZip($zip)
-                    ->setStreet($street)
-                    ->setCity($city);
-
-                $manager = $this->getDoctrine()->getManager();
-                $manager->persist($employee);
-                $manager->flush();
-
+            if ($entity) {
                 return $this->redirectToRoute('employee_index');
             }
         }
@@ -125,6 +89,40 @@ class EmployeeController extends BaseController {
     //
     // Helper Functions   -------------------------------------------------------------
     //
+    private function createOrUpdateEntity(Request $request, Employer $employee = null) {
+        $firstName = $this->validateInput($request->get('firstName'));
+        $lastName = $this->validateInput($request->get('lastName'));
+        $email = $this->validateInput($request->get('email'));
+        $street = $this->validateInput($request->get('street'));
+        $zip = $this->validateInput($request->get('zip'));
+        $city = $this->validateInput($request->get('city'));
+        $country = $this->validateInput($request->get('country'));
+
+        if ($firstName && $lastName && $email && $street && $zip && $city && $country) {
+
+            if (!$employee) {
+                $employee = new Employer();
+            }
+
+            $employee
+                ->setFirstName($firstName)
+                ->setLastName($lastName)
+                ->setEmail($email)
+                ->setZip($zip)
+                ->setStreet($street)
+                ->setCity($city)
+                ->setCountry($country);
+
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($employee);
+            $manager->flush();
+
+            return $employee;
+        }
+
+        return null;
+    }
+
     private function createEmployeeEntities() {
         $employer = new Employer();
         $employer
