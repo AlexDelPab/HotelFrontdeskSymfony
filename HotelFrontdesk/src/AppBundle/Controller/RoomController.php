@@ -18,7 +18,7 @@ class RoomController extends BaseController {
         $roomRepository = $this->getDoctrine()->getRepository(Room::class);
 
         $rooms = $roomRepository->findAll();
-
+        
         if (!$rooms) {
             $rooms = $this->createRooms();
         }
