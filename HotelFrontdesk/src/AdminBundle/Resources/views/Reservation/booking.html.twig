@@ -25,63 +25,7 @@
                 <div class="col-6">
                     <h2 class="mb-5">Reservation Form</h2>
                     <form action="{{ path('reservation_create') }}" method="post">
-                        <div class="row">
-                            <div class="col-sm-6 form-group">
-
-                                <label for="">Arrival Date</label>
-                                <div style="position: relative;">
-                                    <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                                    <input type="text" class="form-control datepicker" name="arrival_date" required/>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 form-group">
-
-                                <label for="">Departure Date</label>
-                                <div style="position: relative;">
-                                    <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                                    <input type="text"  class="form-control datepicker" name="departure_date" required/>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <label for="room">Room</label>
-                                <select name="room" id="room" class="form-control" required>
-                                    {% for room in rooms %}
-                                        <option value="{{ room.id }}">{{ room.id }} - {{ room.type }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <label for="guest">Guests</label>
-                                <select name="guest" id="guest" class="form-control" required>
-                                    <option value="1">1 Guest</option>
-                                    <option value="2">2 Guests</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <label for="message">Write a Note</label>
-                                <textarea name="message" id="message" class="form-control" cols="30" rows="8"></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input type="submit" value="Reserve Now" class="btn btn-primary">
-                            </div>
-                        </div>
+                        {% include '@Admin/Reservation/form.fields.html.twig' %}
                     </form>
                 </div>
                 <div class="col-3">
