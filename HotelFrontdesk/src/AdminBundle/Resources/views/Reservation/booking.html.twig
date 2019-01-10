@@ -30,13 +30,21 @@
                 </div>
                 <div class="col-3">
                     <h3 class="mb-5">All Reservations</h3>
-                    <div class="col-12">
-                        {% for reservation in reservations %}
-                            <div class="row">
-                                {{ reservation.id }} - Room: {{ reservation.room.type }}
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% if reservations|length > 0 %}
+                        <div class="col-12">
+                            {% for reservation in reservations %}
+                                <div class="row">
+                                    <a href="{{ path('reservation_delete', {'id' : reservation.id}) }}"><i
+                                                class="fas fa-trash text-danger mr-2"></i></a>
+                                    {{ reservation.id }} - Room: {{ reservation.room.type }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="col-12 font-italic">
+                            No reservations available
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

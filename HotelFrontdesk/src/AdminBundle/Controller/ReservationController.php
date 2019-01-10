@@ -66,6 +66,20 @@ class ReservationController extends BaseController {
         return $this->redirectToRoute('reservation_index');
     }
 
+    /**
+     * @Route("/{id}/delete", name="reservation_delete")
+     *
+     * @param Reservation $reservation
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAction(Reservation $reservation) {
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($reservation);
+        $manager->flush();
+
+        return $this->redirectToRoute('reservation_index');
+    }
+
     // Helpers
 
     private function createRooms() {

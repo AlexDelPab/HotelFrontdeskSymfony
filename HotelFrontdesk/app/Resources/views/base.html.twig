@@ -18,12 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/all.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/brands.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/fontawesome/css/solid.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
-
-
+    {#<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>#}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
     <script src="{{ asset('bundles/app/template/js/jquery-3.2.1.min.js') }}"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('bundles/app/template/js/jquery-migrate-3.0.0.js') }}"></script>
     <script src="{{ asset('bundles/app/template/js/popper.min.js') }}"></script>
     <script src="{{ asset('bundles/app/template/js/bootstrap.min.js') }}"></script>
@@ -33,6 +32,12 @@
     <script src="{{ asset('bundles/app/template/js/jquery.stellar.min.js') }}"></script>
     <script src="{{ asset('bundles/app/template/js/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('bundles/app/template/js/magnific-popup-options.js') }}"></script>
+
+    <style>
+        .border-right {
+            border-right: 1px solid lightgrey !important;
+        }
+    </style>
 </head>
 <body>
 <header role="banner">
