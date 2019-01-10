@@ -42,11 +42,4 @@ class AppController extends BaseController {
     public function contactAction() {
         return $this->render('@App/contact.html.twig');
     }
-
-    /**
-     * @Route("/rooms", name="rooms")
-     */
-    public function roomsAction() {
-        return $this->render('@App/rooms.html.twig');
-    }
 }
