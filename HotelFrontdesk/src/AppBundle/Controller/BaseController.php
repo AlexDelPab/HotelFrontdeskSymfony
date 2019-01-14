@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BaseController extends Controller {
 
@@ -40,6 +41,20 @@ class BaseController extends Controller {
         }
 
         return false;
+    }
+
+    public static function ResponseSuccess($message) {
+        $response = new JsonResponse();
+
+        $response->setStatusCode(200);
+
+        if (is_string($message)) {
+            $response->setData(['message' => $message]);
+        } else {
+            $response->setData($message);
+        }
+
+        return $response;
     }
 
 }

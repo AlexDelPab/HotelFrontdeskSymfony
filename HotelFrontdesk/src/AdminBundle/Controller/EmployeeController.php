@@ -4,6 +4,7 @@ namespace AdminBundle\Controller;
 
 use AppBundle\Controller\BaseController;
 use AppBundle\Entity\Employer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -75,14 +76,17 @@ class EmployeeController extends BaseController {
      * @Route("/{id}/delete", name="employee_delete")
      *
      * @param Employer $employer
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return JsonResponse
      */
     public function deleteAction(Employer $employer) {
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($employer);
         $manager->flush();
 
-        return $this->redirectToRoute('employee_index');
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+
+        return $response;
     }
 
 

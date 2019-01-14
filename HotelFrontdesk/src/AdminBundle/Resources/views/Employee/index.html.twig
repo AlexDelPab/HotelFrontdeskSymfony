@@ -21,6 +21,7 @@
                 <div class="col-md-12">
                     <div class="heading-wrap text-center">
                         <div class="table-responsive">
+                            <h6 class="text-success" id="deleteMessage"></h6>
                             <table id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -42,7 +43,7 @@
                                         <td>
                                             <a href="{{ path('employee_edit', {'id' : employee.id }) }}"><i
                                                         class="fas fa-edit mr-2 fa-lg"></i> </a>
-                                            <a href="{{ path('employee_delete', {'id' : employee.id}) }}"><i
+                                            <a href="#" onclick="deleteEmployee({{ employee.id }})"><i
                                                         class="fas fa-trash  fa-lg text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -68,6 +69,23 @@
     </div>
 
     <script type="text/javascript">
-        $('#dataTable').DataTable();
+        var table = $('#dataTable').DataTable();
+
+        function deleteEmployee(id) {
+            if (!id) {
+                return;
+            }
+
+            $.ajax({
+                url: 'http://local.symfony/app_dev.php/admin/employee/' + id + '/delete',
+                type: 'delete',
+                success: function (result) {
+                    $('#deleteMessage').html('Employee with ID ' + id + ' successfully over REST-API deleted! Reload page to see the changes');
+                },
+                error: function (e) {
+                    console.log(e.responseText);
+                }
+            });
+        }
     </script>
 {% endblock %}
