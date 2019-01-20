@@ -43,7 +43,7 @@
                                         <td>
                                             <a href="{{ path('employee_edit', {'id' : employee.id }) }}"><i
                                                         class="fas fa-edit mr-2 fa-lg"></i> </a>
-                                            <a href="#" onclick="deleteEmployee({{ employee.id }})"><i
+                                            <a href="javascript:deleteEmployee({{ employee.id }})"><i
                                                         class="fas fa-trash  fa-lg text-danger"></i></a>
                                         </td>
                                     </tr>
@@ -77,7 +77,7 @@
             }
 
             $.ajax({
-                url: 'https://local.symfony/app_dev.php/admin/employee/' + id + '/delete',
+                url: 'https://pabinger.de/admin/employee/' + id + '/delete',
                 type: 'delete',
                 success: function (result) {
                     $('#deleteMessage').html('Employee with ID ' + id + ' successfully over REST-API deleted! Reload page to see the changes');
