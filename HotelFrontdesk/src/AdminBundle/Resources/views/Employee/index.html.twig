@@ -77,7 +77,7 @@
             }
 
             $.ajax({
-                url: 'http://local.symfony/app_dev.php/admin/employee/' + id + '/delete',
+                url: 'https://local.symfony/app_dev.php/admin/employee/' + id + '/delete',
                 type: 'delete',
                 success: function (result) {
                     $('#deleteMessage').html('Employee with ID ' + id + ' successfully over REST-API deleted! Reload page to see the changes');
